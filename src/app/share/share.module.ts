@@ -5,10 +5,12 @@ import { CamelCasePipe } from './camel-case.pipe';
 
 
 
+
 @NgModule({
   declarations: [
 
-          CamelCasePipe
+          CamelCasePipe,
+
   ],
   imports: [
     CommonModule
