@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'Vazir';
+    src: url('./assets/fonts/Vazir.ttf') format('truetype');
+}
+
+.vazir {
+    font-family: 'Vazir';
+}

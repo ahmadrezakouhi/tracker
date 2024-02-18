@@ -1,0 +1,56 @@
+<div class="flex flex-row-reverse h-screen">
+    <div class="lg:w-2/3 hidden lg:block  ">
+        <img src="assets/images/ic_login3.png" class="h-full w-full" alt="">
+    </div>
+    <div class=" md:w-2/3 lg:w-1/3  w-full p-10 flex items-center min-w-96 md:mx-auto">
+        <div class="w-full">
+            <h2 class="text-xl">Sign in</h2>
+            <p class="text-gray-400 mt-2">Welcome to FMS</p>
+            <form  class="mt-10" #loginForm="ngForm" (ngSubmit)="onSubmitForm(loginForm)">
+                <div class="">
+                    <label for="email" class="text-gray-600">Email</label>
+                    <div class="border rounded-md px-2 py-2 w-full flex items-center ">
+                        <i class='fas fa-user-alt text-gray-500 '></i>
+                        <input type="text" class="outline-none w-full pt-1 mx-2" id="email" name="email"
+                            placeholder="test@gmail.com"
+                            required
+                            email
+                            ngModel
+                            >
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <label for="password" class="text-gray-600">Password</label>
+                    <div class="border rounded-md px-2 py-2 w-full flex items-center">
+                        <i class='fas fa-lock text-gray-500 '></i>
+                        <input type="password" class="outline-none w-full pt-1 mx-2" id="password" name="password"
+                            placeholder="At least 8 symbols"
+                            required
+                            ngModel
+                            >
+                        <i class='fas fa-eye-slash text-gray-500 cursor-pointer'></i>
+                    </div>
+                </div>
+
+                <div class="mt-10">
+                    <button class="w-full bg-teal-600 text-white rounded-md py-2" type="submit" 
+                    [disabled]="!loginForm.valid">login</button>
+                </div>
+
+            </form>
+
+            <div class="mt-5 ml-2">
+
+                <a href="" class="mt-5 text-gray-700">Forget Password ?</a>
+
+            </div>
+
+            <div class="mt-8 flex flex-row-reverse items-center">
+                <i class='fas fa-globe text-blue-500 '></i>
+                <p class="vazir mr-2">تغییر زبان به فارسی</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
