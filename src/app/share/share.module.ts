@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CamelCasePipe } from './camel-case.pipe';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -10,6 +11,7 @@ import { CamelCasePipe } from './camel-case.pipe';
   declarations: [
 
           CamelCasePipe,
+           FilterPipe,
 
   ],
   imports: [
@@ -17,7 +19,8 @@ import { CamelCasePipe } from './camel-case.pipe';
   ],
   exports:[
 
-    CamelCasePipe
+    CamelCasePipe,
+    FilterPipe
   ]
 })
 export class ShareModule { }

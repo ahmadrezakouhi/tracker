@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UnitListComponent } from './unit-list.component';
 import { ShareModule } from '../share/share.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { ShareModule } from '../share/share.module';
   ],
   imports: [
     CommonModule,
-    ShareModule
+    ShareModule,
+    FormsModule
   ],
   exports:[
     UnitListComponent

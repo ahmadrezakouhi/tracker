@@ -5,4 +5,8 @@ describe('CamelCasePipe', () => {
     const pipe = new CamelCasePipe();
     expect(pipe).toBeTruthy();
   });
+  it('can change input text to camelcase',()=>{
+    const pipe = new CamelCasePipe();
+    expect(pipe.transform('unit one')).toBe('unitOne');
+  })
 });
