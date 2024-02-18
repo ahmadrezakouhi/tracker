@@ -37,7 +37,7 @@
         <div class="shadow-lg border border-gray-200 w-80 text-gray-400 p-2 ml-2 rounded flex items-center justify-between">
             <div class="flex items-center">
                 <i class='fas fa-search mr-2 '></i>
-                <input type="text" class="outline-none w-full" placeholder="search">
+                <input type="text" class="outline-none w-full" placeholder="search" [(ngModel)]="filterTitle">
             </div>
             <div >
                 <i class='fa fa-gear mr-2 '></i>
@@ -66,7 +66,7 @@
             <thead class=" text-gray-500  bg-gray-50 ">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        <input type="checkbox" class="accent-orange-600">
+                        <input type="checkbox" class="accent-orange-600" (change)="checkAllCheckBox()">
                         Unit Icon
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -88,21 +88,27 @@
             </thead>
             <tbody>
     
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" *ngFor="let unit of units | filter : filterTitle : 'title'">
                     <th scope="row" class="px-6 py-4 ">
-                        <input type="checkbox" class="accent-orange-600">
-                        Microsoft Surface Pro
+                        <div class="flex justify-center items-center space-x-1 ">
+                           <div class="mt-3">
+                            <input type="checkbox" class="accent-orange-600" [checked]="isCheckAll">
+                           </div>
+                       <div>
+                        <img src="`assets/images/ic_login3.png" [alt]="unit.icon" class="w-10 h-10 rounded">
+                       </div>
+                        </div>
                     </th>
                     <td class="px-6 py-4">
-                        {{'unit ss' | camelcase}}
+                        {{ unit.title | camelcase}}
                     </td>
                     <td class="px-6 py-4">
-                        <span class="p-1 rounded" [ngClass]="true ?'bg-green-100':'bg-red-100'" >
-                            connected
+                        <span class="p-1 rounded" [ngClass]=" unit.connectionState === 3?'bg-green-100':'bg-red-100'" >
+                            {{unit.connectionState === 3 ? 'connected':'disconnect'}}
                         </span>
                     </td>
                     <td class="px-6 py-4">
-                        546546465465465
+                        {{unit.imei}}
                     </td>
                     <td class="px-6 py-4">
                         <span class="rounded-full text-red-400 bg-red-100 p-1 border border-red-400 text-xs">
@@ -110,7 +116,7 @@
                         </span>
                     </td>
                     <td class="px-6 py-4">
-                        15 m ago
+                        {{ 1708196380 | date}}
                     </td>
                 </tr>
     
@@ -125,10 +131,10 @@
             page
         </div>
         <div class="">
-            <input type="text" class="outline-none border border-gray-400 rounded w-10 text-center text-sm">
+            <input type="text" class="outline-none border border-gray-400 rounded w-10 text-center text-sm" >
         </div>
         <div>
-            of 2
+            of {{totalCount}}
         </div>
         <div>
             <button><i class="fas fa-angle-left mr-1 px-1 rounded"></i></button>
